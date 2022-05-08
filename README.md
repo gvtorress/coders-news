@@ -5,8 +5,7 @@
 </h1>
 
 <p align="center">
-    <a href="https://coders-news-livid.vercel.app/">View Demo - Vercel</a>
-    <a href="https://df57ahqfotpoh.cloudfront.net/">View Demo - AWS (Static)</a>
+    <a href="">View Demo</a>
 </p>
 
 <p align="center">
