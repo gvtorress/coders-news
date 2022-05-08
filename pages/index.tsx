@@ -60,7 +60,7 @@ Home.getLayout = function getLayout(page) {
     return <Layout title="Dota 2 Major News">{page}</Layout>
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const posts = await getPosts();
 
     return {

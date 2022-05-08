@@ -1,7 +1,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Head from "next/head"
 import Layout from "../../components/Layout"
-import { getPost, Post } from "../../services/content"
+import { getPost, getPosts, Post } from "../../services/content"
 
 type Props = {
     post: Post
@@ -34,12 +34,21 @@ export default function PostPage({ post }: Props) {
     )
 }
 
-export const getServerSideProps = async ({ query }) => {
-    const post = await getPost(query.id);
+export const getStaticProps = async ({ params }) => {
+    const post = await getPost(params.id);
 
     return {
         props: {
             post,
         }
+    }
+}
+
+export const getStaticPaths = async () => {
+    const posts = await getPosts();
+
+    return {
+        paths: posts.map((post) => `/post/${post.sys.id}`),
+        fallback: false,
     }
 }
